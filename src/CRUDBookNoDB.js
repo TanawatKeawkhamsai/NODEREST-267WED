@@ -61,12 +61,12 @@ app.put('/books/:id', (rep, res) => {
 });
 
 //
-app.delete('/books/:id', (req,res) => {
-  const book = books.find(b => b.id === parseInt(req.params.id));
-  if (!book) res.status(404).send('Book not found');
-  const index = books.indexOf(book);
-  books.splice(index,1);
-  res.send(book);
+app.put('/books/:id', (rep, res) => {
+    const book = books.find(b => b.id === parseInt(rep.params.id));
+    if (!book) res.status(404).send('Book not found');
+    const index = books.indexOf(book);
+    books.splice(index, 1);
+    res.send(book);
 });
 
 const port = process.env.PORT || 3000;
